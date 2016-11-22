@@ -11,7 +11,8 @@ import com.jaunt.UserAgentSettings;
 
 public class webscrape {
 	public static int playerid;
-	static boolean search = true;
+	static boolean search = true; //Search for players instead of by steamid.
+	static boolean stats = true; //return plain text of stats instead of image generated.
 
 	public static void main(String[] args) throws IOException, ResponseException, NotFound {
 		Scanner input = new Scanner(System.in);
@@ -19,7 +20,7 @@ public class webscrape {
 		userAgent.settings.checkSSLCerts = false;
 		if (search == true) {
 			getPlayers.main(null);
-		}
+		} else {
 		System.out.println("Enter steamid for Player: ");
 		String steamid = input.nextLine();
 		userAgent.visit("https://stats.gflclan.com/hlstats.php?mode=search&q=" + steamid + "&st=uniqueid&game=csgoze");
@@ -37,5 +38,6 @@ public class webscrape {
 		
 		//getStats.main(null);
 		getImage.main(null);
+		}
 	}
 }

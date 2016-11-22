@@ -11,6 +11,9 @@ public class getStats {
 		UserAgent userAgent = new UserAgent(); 
 		userAgent.settings.checkSSLCerts = false;
 		int playerid = webscrape.playerid;
+		if (playerid == 0) {
+			playerid = getPlayers.playerid;
+			}
 		userAgent.visit("https://stats.gflclan.com/hlstats.php?mode=playerinfo&player=" + playerid);
 		Element body = userAgent.doc.findFirst("<body>");
 		Element div = body.findEach("<tr class=\"bg1\">");

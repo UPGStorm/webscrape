@@ -11,7 +11,6 @@ public class getPlayers {
 
 	public static int playerid;
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) throws IOException, ResponseException, NotFound {
 		Scanner input = new Scanner(System.in);
 		int id = 0;
